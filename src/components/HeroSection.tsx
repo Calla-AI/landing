@@ -47,7 +47,7 @@ export function HeroSection() {
             transition={{ duration: 0.7 }}
             className="space-y-2"
           >
-            <h1 className="text-3xl font-bold tracking-tighter  sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
               Calla
             </h1>
             <p className="mx-auto max-w-[700px]md:text-xl">
@@ -74,7 +74,7 @@ export function HeroSection() {
                   type="email"
                   onChange={handleChange}
                 />
-                <Button className="bg-white text-purple-600" type="submit">
+                <Button className="bg-secondary border" type="submit">
                   Subscribe
                 </Button>
               </form>
@@ -84,18 +84,20 @@ export function HeroSection() {
                 </p>
               </div>
             ) : (
-              <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 justify-center">
+              <div className="flex flex-row md:flex-row md:space-x-2 md:space-y-0 justify-center">
                 <Button
                   className="border"
                   onClick={() => setShowForm(true)}
                 >
                   Join Waitlist
                 </Button>
+                <Link href="https://wool-novel-de6.notion.site/Calla-AI-a3f4d980aad845f3b845b56a03c0fd7b?pvs=4">
                 <Button
-                  className="dark:bg-white bg-black text-purple-600"
+                  className="dark:bg-white dark:text-black bg-black text-white"
                 >
-                  Learn More
+                  Learn More 
                 </Button>
+                </Link>
               </div>
             )}
           </motion.div>
