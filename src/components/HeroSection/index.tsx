@@ -4,35 +4,42 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
+import { TConductorInstance } from "react-canvas-confetti/dist/types";
+import Realistic from "react-canvas-confetti/dist/presets/realistic";
+import { EmailForm } from "./EmailForm";
+
+const FADE_DOWN_ANIMATION_VARIANTS = {
+  hidden: { opacity: 0, y: -10 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+};
+
+const FADE_UP_ANIMATION_VARIANTS = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+};
+
+
 export function HeroSection() {
-
   const ref = useRef(null);
-
   const isInView = useInView(ref) as boolean;
-
   const [showForm, setShowForm] = useState(false);
-  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [conductor, setConductor] = useState<TConductorInstance>();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(email);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setEmail(e.target.value);
-  };
-  const FADE_DOWN_ANIMATION_VARIANTS = {
-    hidden: { opacity: 0, y: -10 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
+  const handleSubmitted = () => {
+    setSubmitted(true);
+    conductor?.shoot();
+    setTimeout(() => {
+      setSubmitted(false);
+      showForm && setShowForm(false);
+    }, 5000);
   };
 
-  const FADE_UP_ANIMATION_VARIANTS = {
-    hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
-  };
   
+  const onInit = ({ conductor }: { conductor: TConductorInstance }) => {
+    setConductor(conductor);
 
+  };
   return (
     <motion.section className="w-full pt-[220px] pb-[200px] md:pt-[250px]">
       <motion.div className="container px-4 md:px-6">
@@ -65,43 +72,26 @@ export function HeroSection() {
             viewport={{ once: true }}
             className="w-full max-w-sm space-y-2"
           >
-            {showForm ? (
-              <div className="flex flex-col space-y-2">
-              <form
-                className="flex flex-row space-x-2 md:flex-row md:space-x-2 md:space-y-0"
-                onSubmit={handleSubmit}
-              >
-                <Input
-                  className="max-w-lg flex-1"
-                  placeholder="Enter your email"
-                  type="email"
-                  onChange={handleChange}
-                />
-                <Button type="submit">
-                  Subscribe
-                </Button>
-              </form>
-              <p className="text-xs">
-                  By subscribing, you agree to receive our newsletter
-                </p>
+            {submitted ? (
+              <div>
+                <p className="text-sm">Thank you for submitting your email. You will be notified when Calla AI is ready to go!</p>
               </div>
+            ) : showForm ? (
+              <EmailForm onSubmitted={handleSubmitted} />
             ) : (
               <div className="flex flex-row md:flex-row md:space-x-2 md:space-y-0 justify-center space-x-2">
-                <Button
-                  className="border"
-                  onClick={() => setShowForm(true)}
-                >
+                <Button className="border" onClick={() => setShowForm(true)}>
                   Join Waitlist
                 </Button>
                 <Link href="https://wool-novel-de6.notion.site/Calla-AI-a3f4d980aad845f3b845b56a03c0fd7b?pvs=4">
-                <Button
-                  className="bg-secondary text-primary border-2"
-                >
-                  Learn More 
-                </Button>
+                  <Button className="bg-secondary text-primary border-2">
+                    Learn More 
+                  </Button>
                 </Link>
               </div>
             )}
+                  <Realistic onInit={onInit} />
+
           </motion.div>
         </div>
       </motion.div>
