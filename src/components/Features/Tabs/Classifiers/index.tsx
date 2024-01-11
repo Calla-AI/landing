@@ -33,15 +33,18 @@ const labelExamples = [{
 export function Classifiers() {
   return (
     <div>
-      <h2 className="text-lg font-bold mb-6">Sentiment Classifier</h2>
+      <div className="text-md text-primary pb-4 font-semibold">
+        Utilize Calla's pre-trained classifiers to find and extract data such as sentiment, labels, topics, and more.
+      </div>
+      <h2 className="text-lg font-bold mb-2">Sentiment Classifier</h2>
       {sentimentExamples.map((comment) => (
-        <div className="flex flex-cols items-center justify-center">
+        <div className="flex flex-cols items-center justify-center -pt-4">
         <Card className="my-2 -p-4 w-[735px]">
             <SentimentAnalyser {...comment}/>
         </Card>
         </div>
         ))}
-      <h2 className="text-lg font-bold mb-6">Label Classifier</h2>
+      <h2 className="text-lg font-bold mb-2 pt-2">Label Classifier</h2>
       {labelExamples.map((label) => (
         <div className="flex flex-cols items-center justify-center">
         <Card className="my-2 -p-4 w-[735px]">

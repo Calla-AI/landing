@@ -61,7 +61,7 @@ export function HeroSection() {
               </span>
             </h1>
             <p className="mx-auto max-w-[700px]md:text-xl">
-              Open Source AI Sentiment Analysis Platform
+              Open Source, AI Text Analtyics Platfrom
             </p>
           </motion.div>
           <motion.div

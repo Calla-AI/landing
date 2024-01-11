@@ -15,6 +15,7 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
+import { DateRange } from "./DateRange";
 
 const data = [
   { "month": "Jan", "total": 900, "positive": 880 },
@@ -26,12 +27,16 @@ const data = [
   { "month": "Jul", "total": 1200, "positive": 1100 }
 ]
 
-export function Sentiment() {
+export function Reports() {
   const { theme: mode } = useTheme();
 
   return (
     <div>
+              <div className="text-md font-semibold text-primary pb-4 -pt-2">
+            Calla analyses your customer feedback in realtime to provide you with actionable insights.
+        </div>
       <div className="max-w-4xl mx-auto mb-8 gap-4 flex flex-row md:grid grid-cols-2">
+
   <Card className="p-6 shadow-lg">
     <h2 className="text-sm font-semibold text-primary">Average Sentiment</h2>
     <CardContent className="-p-12">
@@ -67,10 +72,8 @@ export function Sentiment() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Average Sentiment</CardTitle>
-          <CardDescription>
-            View the average sentiment of your customers over time.
-          </CardDescription>
+          <CardTitle>Sentiment Over Time</CardTitle>
+          <DateRange></DateRange>
         </CardHeader>
         <CardContent className="pb-4">
           <div className="h-[200px]">
