@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { useTheme } from "next-themes";
 import { motion, useInView } from "framer-motion";
 
 export function HeroSection() {
@@ -35,9 +34,9 @@ export function HeroSection() {
   
 
   return (
-    <motion.section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+    <motion.section className="w-full pt-[220px] pb-[200px] md:pt-[250px]">
       <motion.div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center space-y-4 text-center">
+        <div className="flex flex-col items-center space-y-4 text-center h-full justify-center">
           <motion.div
             initial="hidden"
             variants={FADE_DOWN_ANIMATION_VARIANTS}
@@ -47,8 +46,12 @@ export function HeroSection() {
             transition={{ duration: 0.7 }}
             className="space-y-2"
           >
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-              Calla
+            <h1 className="font-bold tracking-tighter text-4xl md:text-5xl">
+              Elevate customer experiences with{' '}
+              <span className="bg-gradient-to-r from-[#FF0080] to-[#7928CA] dark:from-[#7928CA] dark:to-[#FF0080] bg-clip-text text-transparent">
+              
+                AI
+              </span>
             </h1>
             <p className="mx-auto max-w-[700px]md:text-xl">
               Open Source AI Sentiment Analysis Platform
@@ -65,7 +68,7 @@ export function HeroSection() {
             {showForm ? (
               <div className="flex flex-col space-y-2">
               <form
-                className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0"
+                className="flex flex-row space-x-2 md:flex-row md:space-x-2 md:space-y-0"
                 onSubmit={handleSubmit}
               >
                 <Input
@@ -74,17 +77,16 @@ export function HeroSection() {
                   type="email"
                   onChange={handleChange}
                 />
-                <Button className="bg-secondary border" type="submit">
+                <Button type="submit">
                   Subscribe
                 </Button>
               </form>
               <p className="text-xs">
                   By subscribing, you agree to receive our newsletter
-                  with our
                 </p>
               </div>
             ) : (
-              <div className="flex flex-row md:flex-row md:space-x-2 md:space-y-0 justify-center">
+              <div className="flex flex-row md:flex-row md:space-x-2 md:space-y-0 justify-center space-x-2">
                 <Button
                   className="border"
                   onClick={() => setShowForm(true)}
@@ -93,7 +95,7 @@ export function HeroSection() {
                 </Button>
                 <Link href="https://wool-novel-de6.notion.site/Calla-AI-a3f4d980aad845f3b845b56a03c0fd7b?pvs=4">
                 <Button
-                  className="dark:bg-white dark:text-black bg-black text-white"
+                  className="bg-secondary text-primary border-2"
                 >
                   Learn More 
                 </Button>

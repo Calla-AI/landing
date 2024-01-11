@@ -1,7 +1,6 @@
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import JSXStyle from "styled-jsx/style";
 
 const CallaIcon = (props:  IconProps) => {
    const [fill, setFill] = useState("#ffffff")

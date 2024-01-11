@@ -7,7 +7,7 @@ import { FC, PropsWithChildren } from 'react'
 
 const Header = ({ children }: PropsWithChildren) => {
     return (
-    <header className="w-full flex flex-col">
+    <header className="w-full flex flex-col fixed bg-primary-foreground z-40">
       <nav className="flex items-center justify-between p-4 w-full">
         <Link href="/" className="flex items-center space-x-1">
             <CallaIcon width={40}/>
