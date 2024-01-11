@@ -32,24 +32,24 @@ export function Reports() {
                     </CardContent>
                 </Card>
                 <Card className="bg-secondary-foreground rounded-lg p-6 shadow-lg">
-                    <h2 className="text-sm font-semibold text-gray-700">Change in Sentiment</h2>
+                    <h2 className="text-sm font-semibold text-primary-foreground">Change in Sentiment</h2>
                     <CardContent className="-p-12">
                         <div className="mt-2 space-y-2 text-[10px] md:text-sm">
                             <div className="flex flex-wrap items-center">
                                 <p className="font-medium text-green-600">+0.05%</p>
-                                <p className="ml-1 md:ml-4 font-medium text-gray-500">vs. Prior Week</p>
+                                <p className="ml-1 md:ml-[140px] font-medium text-secondary">vs. Prior Week</p>
                             </div>
                             <div className="flex flex-wrap items-center">
                                 <p className="font-medium text-red-600">-0.04%</p>
-                                <p className="ml-1 md:ml-4 font-medium text-gray-500">vs. Prior Month</p>
+                                <p className="ml-1 md:ml-36 font-medium text-secondary">vs. Prior Month</p>
                             </div>
                             <div className="flex flex-wrap items-center">
                                 <p className="font-medium text-green-600">+0.15%</p>
-                                <p className="ml-[0.2px] md:ml-4 font-medium text-gray-500">vs. Prior Quarter</p>
+                                <p className="ml-[0.2px] md:ml-[140px] font-medium text-secondary">vs. Prior Quarter</p>
                             </div>
                             <div className="flex flex-wrap items-center">
                                 <p className="font-medium text-green-600">+1.51%</p>
-                                <p className="ml-[0.01px] md:ml-4 font-medium text-gray-500">vs. 6 Months Ago</p>
+                                <p className="ml-[0.01px] md:ml-[140px] font-medium text-secondary">vs. 6 Months Ago</p>
                             </div>
                         </div>
                     </CardContent>
@@ -58,8 +58,10 @@ export function Reports() {
 
             <Card>
                 <CardHeader>
-                    <CardTitle>Sentiment Over Time</CardTitle>
-                    <DateRange></DateRange>
+                    <div className="flex flex-col justify-between space-y-2">
+                        <CardTitle>Customer Sentiment Over time</CardTitle>
+                        <DateRange />
+                    </div>
                 </CardHeader>
                 <CardContent className="pb-4">
                     <div className="h-[200px]">
