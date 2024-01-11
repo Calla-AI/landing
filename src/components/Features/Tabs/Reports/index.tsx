@@ -58,9 +58,9 @@ export function Reports() {
 
             <Card>
                 <CardHeader>
-                    <div className="flex flex-col justify-between space-y-2">
+                    <div className="flex flex-row justify-between">
                         <CardTitle>Customer Sentiment Over time</CardTitle>
-                        <DateRange />
+                        <DateRange className="hidden md:block" />
                     </div>
                 </CardHeader>
                 <CardContent className="pb-4">
@@ -77,7 +77,7 @@ export function Reports() {
                                                     <div className="grid grid-cols-2 gap-2">
                                                         <div className="flex flex-col">
                                                             <span className="text-[0.70rem] uppercase text-muted-foreground">
-                                                                Total
+                                                                Total Comments
                                                             </span>
                                                             <span className="font-bold text-muted-foreground">
                                                                 {payload[0].value}
