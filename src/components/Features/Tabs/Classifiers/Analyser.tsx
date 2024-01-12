@@ -30,10 +30,10 @@ export const SentimentAnalyser = ({ text, positiveWords, negativeWords, result }
     const sentimentResult = analyzeSentiment()
 
     return (
-        <div className="max-w-4xl mx-auto p-6 rounded-lg">
-            <div className="flex items-start">
+        <div className="max-w-4xl mx-auto p-6 rounded-lg overflow-hidden">
+            <div className="flex items-center">
                 <div className="max-w-[345px] pr-4">
-                    <p className="text-primary">
+                    <p className="text-primary overflow-hidden" style={{ textOverflow: 'ellipsis' }}>
                         {text.split(' ').map((word, index) => {
                             if (positiveWords.includes(word)) {
                                 return (
@@ -53,10 +53,10 @@ export const SentimentAnalyser = ({ text, positiveWords, negativeWords, result }
                         })}
                     </p>
                 </div>
-                <div className="flex items-center ml-auto">
+                <div className="flex items-center md:ml-24 mr-2">
                     <ArrowRightIcon />
                 </div>
-                <div className="ml-4">
+                <div className="ml-auto">
                     <Badge
                         className={`text-${
                             sentimentResult === 'Positive' ? 'green' : sentimentResult === 'Negative' ? 'red' : 'gray'
@@ -73,15 +73,15 @@ export const SentimentAnalyser = ({ text, positiveWords, negativeWords, result }
 export type Label = {
     query: string
     keywords: string[]
-    result: 'Technical Support' | 'Sales' | 'Billing' | 'Other'
+    result: 'Support' | 'Sales' | 'Billing' | 'Other'
 }
 
 export const Labeler = ({ query, keywords, result }: Label) => {
     return (
-        <div className="max-w-4xl mx-auto p-6 rounded-lg">
-            <div className="flex items-start">
+        <div className="max-w-4xl mx-auto p-6 rounded-lg overflow-hidden">
+            <div className="flex items-center">
                 <div className="max-w-[345px] pr-4">
-                    <p className="text-primary">
+                    <p className="text-primary overflow-hidden" style={{ textOverflow: 'ellipsis' }}>
                         {query.split(' ').map((word, index) => {
                             if (keywords.includes(word)) {
                                 return (
@@ -95,16 +95,16 @@ export const Labeler = ({ query, keywords, result }: Label) => {
                         })}
                     </p>
                 </div>
-                <div className="flex items-center ml-auto">
+                <div className="flex items-center md:ml-24 mr-2">
                     <ArrowRightIcon />
                 </div>
-                <div className="ml-4">
+                <div className="ml-auto">
                     <Badge
                         className={`text-${
-                            result === 'Technical Support'
+                            result === 'Support'
                                 ? 'green'
                                 : result === 'Sales'
-                                  ? 'Purple'
+                                  ? 'violet'
                                   : result === 'Billing'
                                     ? 'blue'
                                     : 'gray'

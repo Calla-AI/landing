@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import CallaIcon from './icons/CallIcon'
-import { PropsWithChildren } from 'react'
+import CallaIcon from './icons/CallaIcon'
+import type { PropsWithChildren } from 'react'
 
 const Header = ({ children }: PropsWithChildren) => {
     return (
