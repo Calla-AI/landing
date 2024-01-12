@@ -1,3 +1,5 @@
+'use client'
+
 import { IconProps } from '@radix-ui/react-icons/dist/types'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'

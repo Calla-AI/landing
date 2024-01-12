@@ -1,4 +1,4 @@
-// EmailFormWithConfetti.tsx
+'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Input } from '@/components/ui/input'

@@ -1,3 +1,4 @@
+'use client'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 import { Reports } from './Tabs/Reports'
@@ -23,23 +24,26 @@ const FADE_UP_ANIMATION_VARIANTS = {
 
 const tabs = [
     {
-        name: 'Classifiers',
-        content: Classifiers
+        name: 'Integrations',
+        content: Integrations,
+        header: 'Connect the Tools You Already Use'
     },
     {
         name: 'Reports',
-        content: Reports
+        content: Reports,
+        header: 'Get Realtime Insights'
     },
     {
-        name: 'Integrations',
-        content: Integrations
+        name: 'Classifiers',
+        content: Classifiers,
+        header: 'Build Custom Classifiers'
     }
 ]
 
-export default function FeaturesSection() {
+export function FeaturesSection() {
     const ref = useRef<HTMLDivElement>(null)
     const isInView = useInView(ref) as boolean
-    const [activeTab, setActiveTab] = useState('Classifiers')
+    const [activeTab, setActiveTab] = useState('Integrations')
 
     return (
         <motion.div
@@ -49,11 +53,11 @@ export default function FeaturesSection() {
             variants={FADE_UP_ANIMATION_VARIANTS}
             className="min-h-screen flex flex-col justify-center items-center px-4 pt-3"
         >
-            <h6 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                Get Realtime Insights
+            <h6 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
+                {tabs.find((tab) => tab.name === activeTab)?.header}
             </h6>
             <p className="mt-6 text-sm"></p>
-            <Tabs defaultValue="Classifiers" className="w-screen md:w-[800px] min-h-[450px]">
+            <Tabs defaultValue="Integrations" className="w-screen md:w-[800px] min-h-[450px]">
                 <TabsList className="flex flex-row w-full grid-cols-3 space-x-3 p-2 bg-transparent">
                     {/* https://github.com/jordienr/jordienric.com/blob/main/app/lab/Navigation.tsx */}
                     {tabs.map((tab) => (

@@ -22,13 +22,13 @@ const sentimentExamples = [
 
 const labelExamples = [
     {
-        query: 'My computer suddenly stopped working',
-        keywords: ['computer', 'stopped', 'working'],
-        result: 'Technical Support'
+        query: 'My computer screen suddenly went blank and stopped working',
+        keywords: ['computer', 'screen', 'went', 'blank', 'stopped', 'working'],
+        result: 'Support'
     },
     {
-        query: 'I want to cancel my subscription',
-        keywords: ['cancel', 'subscription'],
+        query: 'My credit card was charged twice for the same subscription',
+        keywords: ['credit', 'card', 'charged', 'twice', 'same', 'subscription'],
         result: 'Billing'
     },
     {
@@ -43,7 +43,7 @@ export function Classifiers() {
         <div>
             <div className="text-md text-primary pb-4 font-semibold">
                 Utilize Calla's pre-trained classifiers to find and extract data such as sentiment, labels, topics, and
-                more.
+                more. You can also train your own custom classifiers from your datasets, and use them to extract data.
             </div>
             <h2 className="text-lg font-bold mb-2">Sentiment Classifier</h2>
             {sentimentExamples.map((comment) => (
