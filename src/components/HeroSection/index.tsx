@@ -77,12 +77,14 @@ export function HeroSection() {
                             <EmailForm onSubmitted={handleSubmitted} />
                         ) : (
                             <div className="flex flex-row md:flex-row md:space-x-2 md:space-y-0 justify-center space-x-2">
-                                <Button className="border" onClick={() => setShowForm(true)}>
+                                <Button onClick={() => setShowForm(true)}>
                                     Join Waitlist
                                 </Button>
-                                <Link href="https://wool-novel-de6.notion.site/Calla-AI-a3f4d980aad845f3b845b56a03c0fd7b?pvs=4">
-                                    <Button className="bg-secondary text-primary border-2">Learn More</Button>
-                                </Link>
+                                <Button variant="secondary" asChild>
+                                    <Link href="https://wool-novel-de6.notion.site/Calla-AI-a3f4d980aad845f3b845b56a03c0fd7b?pvs=4">
+                                        Learn More
+                                    </Link>
+                                </Button>
                             </div>
                         )}
                         <Realistic onInit={onInit} />

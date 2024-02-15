@@ -58,7 +58,7 @@ export function FeaturesSection() {
             </h6>
             <p className="mt-6 text-sm"></p>
             <Tabs defaultValue="Integrations" className="w-screen md:w-[800px] min-h-[450px]">
-                <TabsList className="flex flex-row w-full grid-cols-3 space-x-3 p-2 bg-transparent">
+                <TabsList className="flex flex-row w-full grid-cols-3 space-x-3 p-2 mb-3 bg-transparent">
                     {/* https://github.com/jordienr/jordienric.com/blob/main/app/lab/Navigation.tsx */}
                     {tabs.map((tab) => (
                         <TabsTrigger
@@ -99,7 +99,7 @@ export function FeaturesSection() {
                 >
                     {tabs.map((tab) => (
                         <TabsContent key={tab.name} value={tab.name}>
-                            <div className="h-[600px] overflow-y-auto m-2">
+                            <div className="h-[600px] px-3 overflow-y-auto m-2">
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>{tab.name}</CardTitle>
